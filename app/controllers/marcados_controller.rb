@@ -1,0 +1,2 @@
+class MarcadosController < ApplicationController
+end

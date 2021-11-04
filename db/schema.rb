@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_194333) do
+ActiveRecord::Schema.define(version: 2021_11_04_212209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidatos", force: :cascade do |t|
+    t.string "cpf"
+    t.string "nome_candidato"
+    t.string "email"
+    t.date "nascimento"
+    t.string "grau_instrucao"
+    t.string "ocupacao"
+    t.string "partido"
+    t.string "cargo"
+    t.string "estado"
+    t.string "nome_urna"
+    t.integer "ano_eleicao"
+    t.boolean "eleito"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "informacaos", force: :cascade do |t|
+    t.string "titulo"
+    t.text "conteudo"
+    t.string "fonte"
+    t.date "data"
+    t.bigint "candidato_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidato_id"], name: "index_informacaos_on_candidato_id"
+  end
+
+  create_table "marcados", force: :cascade do |t|
+    t.string "comentario"
+    t.bigint "user_id", null: false
+    t.bigint "candidato_id", null: false
+    t.boolean "destroyed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidato_id"], name: "index_marcados_on_candidato_id"
+    t.index ["user_id"], name: "index_marcados_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +62,12 @@ ActiveRecord::Schema.define(version: 2021_11_04_194333) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nome"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "informacaos", "candidatos"
+  add_foreign_key "marcados", "candidatos"
+  add_foreign_key "marcados", "users"
 end
