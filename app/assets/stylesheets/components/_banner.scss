@@ -1,9 +1,9 @@
 .banner {
-  background-image: url('assets/images/congresso-02.jpg');
-  width: 600 px;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('congresso-02.jpg');
+  // width: 600 px;
   background-size: cover;
   background-position: center;
-  // padding: 150px 0;
+  padding: 150px 0;
 }
 
 .banner h1 {
