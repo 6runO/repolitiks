@@ -12,9 +12,24 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+     <div id="page-container">
+      <% if current_page?(root_path) %>
+      <% else %>
+        <div id="content-wrap">
+      <% end %>
 
-    <%= yield %>
+        <%= render 'shared/navbar' %>
+        <%= yield %>
+        <%= render 'shared/flashes' %>
+
+      <% if current_page?(root_path) %>
+      <% else %>
+        </div>
+      <% end %>
+
+      <% unless current_page?(root_path) %>
+        <%= render 'shared/footer' %>
+      <% end %>
+    </div>
   </body>
 </html>
