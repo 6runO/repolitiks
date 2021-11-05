@@ -6,5 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nome, presence: true
+  validates :email, uniqueness: true
   # validates email com regex?
 end
