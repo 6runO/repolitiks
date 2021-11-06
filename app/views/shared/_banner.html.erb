@@ -1,7 +1,12 @@
 <div class="banner">
   <div class="container">
-    <h1>Repensar, refletir, reconsiderar, refazer, ressignificar...a política!</h1>
+    <h1>Repensar, refletir, reconsiderar, refazer, ressignificar... a política!</h1>
     <p>Acompanhe e monitore os políticos de seu interesse</p>
-    <a class="btn btn-primary" href="#">Quero Repolitizar</a>
+    <% if !user_signed_in? %>
+      <%= link_to "Quero Repolitizar", new_user_registration_path, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="container text-center py-5">
+    <%= link_to "Políticos/Candidatos", candidatos_path, class: "btn btn-secondary" %>
   </div>
 </div>

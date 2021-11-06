@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   include Pundit
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || user_root_path
+  end
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
