@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand py-0" do %>
-  <h1 class="text-logo mb-0">REPOLITIKS</h1>
+    <%# <h1 class="text-logo mb-0">REPOLITIKS</h1> %>
+    <%# <p class="text-logo mb-0"><span class="logo-main">REPOLITIKS</span><span class="logo-mirror">REPOLITIKS</span></p> %>
+    <p class="text-logo mb-0"><span class="logo-main2">REPOLITIKS</span><span class="logo-mirror2">REPOLITIKS</span></p>
   <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,12 +13,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <%= link_to "Políticos", candidatos_path, class: "nav-link" %>
+      <%= link_to "Políticos", candidatos_path, class: "nav-link mr-2" %>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to user_root_path, class:"nav-link mr-4 ml-2" do %>
+            <i class="fas fa-house-user nav-casinha"></i>
+          <% end %>
         </li>
-        <li class="nav-item dropdown pl-2">
+        <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <p><%= current_user.email %></p>
