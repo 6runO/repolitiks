@@ -14,3 +14,23 @@
 .text-logo {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.nav-login{
+  background-color: rgb(240, 240, 240);
+}
+
+.nav-item.dropdown{
+  cursor: pointer;
+}
+
+.nav-item.dropdown p{
+  padding: 4px 24px;
+  font-style: italic;
+  color: rgb(180, 180, 180);
+  cursor: default;
+  margin: 0;
+}
+
+.item-minha-conta{
+  color: rgb(100, 100, 100);
+}
