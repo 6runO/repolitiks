@@ -1,5 +1,6 @@
 class Candidato < ApplicationRecord
   has_many :marcados
+  # has_many :users, through: :marcados  ## Desmarcar esta linha caso seja necessário saber quantos usuários marcaram um candidato
   has_many :informacaos
 
   validates :cpf, :nome_candidato, :email, :nascimento, :grau_instrucao, :ocupacao,
