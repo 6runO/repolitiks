@@ -5,9 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'csv'
 
-Candidato.destroy_all
+require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_2018.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -25,7 +24,7 @@ csv.each do |row|
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
   c.save
-  puts "#{c.nome_urna}, #{c.cargo} saved"
+  puts "#{c.nome_urna}, #{c.partido} saved!"
 end
 
-puts "Existem agora #{Candidato.count} rows na tabela candidatos."
+puts "Agora existem #{Candidato.count} registros na tabela candidatos."
