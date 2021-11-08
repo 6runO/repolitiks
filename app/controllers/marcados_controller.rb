@@ -4,7 +4,6 @@ class MarcadosController < ApplicationController
 
   def create
     @marcado = Marcado.new
-    @marcado.destroyed = false
     @marcado.user = current_user
     @marcado.candidato = @candidato
     authorize @marcado
