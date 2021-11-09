@@ -12,9 +12,7 @@
     <div class="row">
       <% @candidatos.first(50).each do |candidato| %>
         <div class="col-sm-6 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
-          <%= link_to candidato_path(candidato), class:"link-candidato" do %>
-            <%= render "shared/card_candidato", candidato: candidato %>
-          <% end %>
+          <%= render "shared/card_candidato", candidato: candidato %>
         </div>
       <% end %>
     </div>

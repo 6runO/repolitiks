@@ -3,6 +3,12 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.card-candidato:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .card-candidato > img {
