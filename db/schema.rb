@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_173522) do
+ActiveRecord::Schema.define(version: 2021_11_09_202706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(version: 2021_11_09_173522) do
     t.string "comentario"
     t.bigint "user_id", null: false
     t.bigint "candidato_id", null: false
-    t.boolean "destroyed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "desativado", default: false
     t.index ["candidato_id"], name: "index_marcados_on_candidato_id"
     t.index ["user_id"], name: "index_marcados_on_user_id"
   end
