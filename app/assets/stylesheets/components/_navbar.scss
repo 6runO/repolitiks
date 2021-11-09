@@ -16,6 +16,12 @@
   font-size: 32px;
 }
 
+@media screen and (max-width: 576px) {
+  .text-logo {
+    font-size: 22px;
+  }
+}
+
 .logo-main{
   background: linear-gradient(to right, black , rgb(220, 220, 220));
   background-clip: text;
