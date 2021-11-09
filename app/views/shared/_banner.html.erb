@@ -8,7 +8,7 @@
   </div>
   <div class="container text-center py-5">
     <%=form_tag candidatos_path, :method => "get" do %>
-      <span style="color:white"><%= label_tag "Digite o nome, partido ou Estado de um político" %></span>
+      <h6><span style="color:white">Digite o nome, partido ou UF de um político</span></h6>
       <%= text_field_tag :query, params[:query]  %>
       <%= submit_tag "Repolitizar", class: "btn btn-primary"  %>
     <% end %>

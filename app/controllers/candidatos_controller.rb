@@ -22,8 +22,4 @@ class CandidatosController < ApplicationController
   def set_candidato
     @candidato = Candidato.find(params[:id])
   end
-# Verificar o que significa este método
-  def candidato_params
-    params.require(:candidato).permit(:nome_candidato, :candidato_id, :search)
-  end
 end
