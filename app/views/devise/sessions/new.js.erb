@@ -1,3 +1,5 @@
-const errorMessage = document.querySelector('.log-modal')
-console.log(errorMessage)
-errorMessage.innerHTML = "<%= escape_javascript(render 'shared/login_modal') %>"
+<%# const errorMessage = document.querySelector('.log-modal')
+errorMessage.innerHTML = "<%= escape_javascript(render 'shared/login_modal') %>
+
+const errorMessage = document.querySelector('.errors')
+errorMessage.innerHTML = "Email/Password incorreto(s). \<br>Reveja as informações abaixo, por favor: \<br><br>"
