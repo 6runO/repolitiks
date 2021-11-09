@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_202706) do
     t.boolean "eleito"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status_eleicao"
   end
 
   create_table "informacaos", force: :cascade do |t|
