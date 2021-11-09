@@ -11,3 +11,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+#content-wrap{
+  height: calc(100vh - 64px - 56px);
+}
