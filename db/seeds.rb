@@ -23,6 +23,7 @@ csv.each do |row|
   c.estado = row['ESTADO']
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
+  
   c.save
   puts "#{c.nome_urna}, #{c.partido} saved!"
 end
