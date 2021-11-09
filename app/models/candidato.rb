@@ -9,9 +9,9 @@ class Candidato < ApplicationRecord
 
   def self.search(search)
     if search
-      politico_buscado = Candidato.find_by(nome_candidato: search)
+      politico_buscado = Candidato.find_by(nome_urna: search)
       if politico_buscado
-        self.where(candidato_id: politico_buscado)
+        self.where(nome_urna: politico_buscado)
       else
         @candidatos = Candidato.all
       end

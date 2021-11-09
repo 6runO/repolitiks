@@ -8,7 +8,7 @@
   </div>
   <%=form_tag candidatos_path, :method => "get" do %>
     <%= label_tag(:search, "Procure aqui o político:") %>
-    <%= text_field_tag :search, params[:searc]  %>
+    <%= text_field_tag :search, params[:search]  %>
     <%= submit_tag("Search", :name => nil)  %>
   <% end %>
   <div class="container text-center py-5">
