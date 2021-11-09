@@ -16,6 +16,12 @@
   font-size: 32px;
 }
 
+@media screen and (max-width: 540px) {
+  .text-logo {
+    font-size: 20px;
+  }
+}
+
 .logo-main{
   background: linear-gradient(to right, black , rgb(220, 220, 220));
   background-clip: text;
@@ -35,7 +41,7 @@
 }
 
 .logo-mirror2{
-  background: linear-gradient(to right, rgb(220, 220, 220), rgb(80, 80, 80));
+  background: linear-gradient(to right, rgb(220, 220, 220), rgb(110, 110, 110));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0.3;

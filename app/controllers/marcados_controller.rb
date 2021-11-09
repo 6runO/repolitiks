@@ -25,7 +25,7 @@ class MarcadosController < ApplicationController
     else
       notice = "#{@marcado.candidato.nome_urna} foi marcado com sucesso."
     end
-    redirect_to user_root_path, notice: notice
+    redirect_to , notice: notice
   end
 
   private

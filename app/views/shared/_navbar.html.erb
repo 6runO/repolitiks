@@ -33,9 +33,12 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link nav-login rounded ml-2" %>
+          <%# <%= link_to "Login", new_user_session_path, class: "nav-link nav-login rounded ml-2" %>
+          <%= link_to "Login", "", class: "nav-link nav-login rounded ml-2", data: { toggle: "modal", target: "#exampleModalCenter" } %>
         </li>
       <% end %>
     </ul>
   </div>
 </div>
+
+<%= render "shared/login_modal" %>
