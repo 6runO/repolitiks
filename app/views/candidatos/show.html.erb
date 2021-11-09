@@ -1,30 +1,35 @@
 <div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="true">Dados básicos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="bens-tab" data-toggle="tab" href="#bens" role="tab" aria-controls="bens" aria-selected="false">Bens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="propostas-tab" data-toggle="tab" href="#propostas" role="tab" aria-controls="propostas" aria-selected="false">Propostas</a>
+        </li>
+      </ul>
+    </div>
 
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Dados básicos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Bens</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Propostas</a>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-    <h2 class="card-title"><%= @candidato.nome_urna %></h2>
-    <p class="card-text">Nome completo: <%= @candidato.nome_candidato %></p>
-    <p class="card-text">Cargo atual: <%= @candidato.cargo %></p>
-    <p class="card-text">Partido atual: <%= @candidato.partido %></p>
-    <p class="card-text">Idade: <%= Date.today.year - @candidato.nascimento.year %></p>
-    <p class="card-text">Data de nascimento: <%= @candidato.nascimento %></p>
-    <p class="card-text">Escolaridade: <%= @candidato.grau_instrucao.downcase %></p>
-    <p class="card-text">Ocupação anterior: <%= @candidato.ocupacao.capitalize %></p>
-    <p class="card-text">Estado: <%= @candidato.estado %></p>
-    <p class="card-text">Email para contato: <%= @candidato.email.downcase %></p>
-    <a href="#" class="btn btn-warning">Seguir</a>
+    <div class="tab-content" id="myTabContent">
+      <h2 class="card-title text-center mt-3"><%= @candidato.nome_urna %></h2>
+      <div class="tab-pane fade show active" id="dados" role="tabpanel" aria-labelledby="home-tab">
+        <p class="card-text text-center">Nome completo: <%= @candidato.nome_candidato %></p>
+        <p class="card-text text-center">Cargo atual: <%= @candidato.cargo %></p>
+        <p class="card-text text-center">Partido: <%= @candidato.partido %></p>
+        <p class="card-text text-center">Idade: <%= Date.today.year - @candidato.nascimento.year %></p>
+        <p class="card-text text-center">Data de nascimento: <%= @candidato.nascimento %></p>
+        <p class="card-text text-center">Escolaridade: <%= @candidato.grau_instrucao.downcase %></p>
+        <p class="card-text text-center">Ocupação anterior: <%= @candidato.ocupacao.capitalize %></p>
+        <p class="card-text text-center">Estado: <%= @candidato.estado %></p>
+        <p class="card-text text-center">Email para contato: <%= @candidato.email.downcase %></p>
+      </div>
+      <div class="tab-pane fade text-center" id="bens" role="tabpanel" aria-labelledby="bens-tab">Inserir informações sobre os bens do político</div>
+      <div class="tab-pane fade text-center" id="propostas" role="tabpanel" aria-labelledby="propostas-tab">Inserir informações sobre as propostas do político</div>
+      <a href="#" class="btn btn-warning my-3">Seguir</a>
+    </div>
   </div>
 </div>
