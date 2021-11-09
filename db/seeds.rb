@@ -23,7 +23,11 @@ csv.each do |row|
   c.estado = row['ESTADO']
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
-  
+
+  foto = row['SQ_CANDIDATO']
+
+  c.photo.attach(io: File.open("app/assets/images/#{foto}.jpg"), filename: "#{foto}.jpg")
+
   c.save
   puts "#{c.nome_urna}, #{c.partido} saved!"
 end
