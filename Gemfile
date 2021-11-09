@@ -69,3 +69,4 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Gema para busca
 gem 'pg_search', '~> 2.3.0'
+gem 'kaminari'
