@@ -6,10 +6,9 @@
       <%= link_to "Quero Repolitizar", new_user_registration_path, class:"btn btn-primary" %>
     <% end %>
   </div>
-  <div class="container text-center py-5">
-    <%=form_tag candidatos_path, :method => "get" do %>
-      <%= text_field_tag :query, params[:query]  %>
-      <%= submit_tag "Políticos/Candidatos", class: "btn btn-secondary"  %>
-    <% end %>
-  </div>
+  <%=form_tag candidatos_path, :method => "get" do %>
+    <%= label_tag(:search, "Procure aqui o político:") %>
+    <%= text_field_tag :search, params[:search]  %>
+    <%= submit_tag("Search", :name => nil)  %>
+  <% end %>
 </div>

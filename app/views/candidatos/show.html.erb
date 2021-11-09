@@ -1,2 +1,30 @@
-<h1>Show do candidato</h1>
-<p><%= @candidato.nome_urna %></p>
+<div class="container">
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Dados básicos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Bens</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Propostas</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h2 class="card-title"><%= @candidato.nome_urna %></h2>
+    <p class="card-text">Nome completo: <%= @candidato.nome_candidato %></p>
+    <p class="card-text">Cargo atual: <%= @candidato.cargo %></p>
+    <p class="card-text">Partido atual: <%= @candidato.partido %></p>
+    <p class="card-text">Idade: <%= Date.today.year - @candidato.nascimento.year %></p>
+    <p class="card-text">Data de nascimento: <%= @candidato.nascimento %></p>
+    <p class="card-text">Escolaridade: <%= @candidato.grau_instrucao.downcase %></p>
+    <p class="card-text">Ocupação anterior: <%= @candidato.ocupacao.capitalize %></p>
+    <p class="card-text">Estado: <%= @candidato.estado %></p>
+    <p class="card-text">Email para contato: <%= @candidato.email.downcase %></p>
+    <a href="#" class="btn btn-warning">Seguir</a>
+  </div>
+</div>
