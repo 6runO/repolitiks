@@ -13,18 +13,4 @@ class Candidato < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  
-  def self.search(search)
-    if search
-      politico_buscado = Candidato.find_by(nome_urna: search)
-      if politico_buscado
-        self.where(nome_urna: politico_buscado)
-      else
-        @candidatos = Candidato.all
-      end
-    else
-      @candidatos = Candidato.all
-    end
-  end
-
 end
