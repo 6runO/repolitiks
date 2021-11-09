@@ -3,13 +3,14 @@
     <h1>Repensar, refletir, reconsiderar, refazer, ressignificar... a política!</h1>
     <p>Acompanhe e monitore os políticos de seu interesse</p>
     <% if !user_signed_in? %>
-      <%= link_to "Quero Repolitizar", new_user_registration_path, class:"btn btn-primary" %>
+      <%# <%= link_to "Quero Repolitizar", new_user_registration_path, class:"btn btn-primary" %>
     <% end %>
   </div>
   <div class="container text-center py-5">
     <%=form_tag candidatos_path, :method => "get" do %>
+      <span style="color:white"><%= label_tag "Digite o nome, partido ou Estado de um político" %></span>
       <%= text_field_tag :query, params[:query]  %>
-      <%= submit_tag "Políticos/Candidatos", class: "btn btn-secondary"  %>
+      <%= submit_tag "Repolitizar", class: "btn btn-primary"  %>
     <% end %>
   </div>
 </div>
