@@ -7,7 +7,7 @@ class CandidatosController < ApplicationController
     # @candidatos = Candidato.search(params[:search])
     if params[:query].present?
       sql_query = "nome_urna ILIKE :query OR nome_candidato ILIKE :query OR partido ILIKE :query OR estado ILIKE :query"
-      @candidatos = Candidato.where(sql_query, query: "%#{params[:query]}%")
+      @candidatos = Candidato.where(sql_query, query: "%#{params[:query]}%").page(params[:page])
     else
       @candidatos = Candidato.page params[:page]
     end
