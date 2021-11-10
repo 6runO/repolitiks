@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="text-center py-4">
+  <div class="text-center py-4 position-relative">
     <h1>Candidatos</h1>
-  </div>
-  <% if user_signed_in? %>
-    <div class="text-right">
-      <%= link_to "Minha página", user_root_path, class: "btn btn-gradient" %>
-    </div>
+    <% if user_signed_in? %>
+    <%# <div class="text-right position-absolute"> %>
+      <%= link_to "Minha página", user_root_path, class: "btn btn-gradient position-absolute btn-minha" %>
+    <%# </div> %>
   <% end %>
+  </div>
 
   <div class="container">
     <div class="row">
