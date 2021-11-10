@@ -14,8 +14,7 @@
   <body>
     <%= render 'shared/navbar' %>
 
-    <% if current_page?(root_path) %>
-    <% else %>
+    <% unless current_page?(root_path) %>
       <div id="content-wrap">
     <% end %>
 
