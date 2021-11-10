@@ -8,6 +8,7 @@
 
 require 'csv'
 puts "Apagando registros anteriores..."
+Marcado.delete_all
 Candidato.delete_all
 
 puts "Criando novos registros..."
@@ -29,6 +30,8 @@ csv.each do |row|
   c.status_eleicao = row['STATUS_ELEICAO']
 
   foto = row['SQ_CANDIDATO']
+  # string = "/(?:......)/gm"
+  # regex = Regexp.new(string)
 
   c.photo.attach(io: File.open("app/assets/images/fotos_2018/#{foto}.jpg"), filename: "#{foto}.jpg")
 
