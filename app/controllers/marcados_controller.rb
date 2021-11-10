@@ -1,4 +1,6 @@
 class MarcadosController < ApplicationController
+  include ActionView::Helpers::UrlHelper
+
   before_action :set_candidato, only: [:create]
   before_action :set_marcado, only: [:update]
 
@@ -8,24 +10,21 @@ class MarcadosController < ApplicationController
     @marcado.candidato = @candidato
     authorize @marcado
     @marcado.save
-    if current_page?(candidatos_path)   #Se o usuário estiver na index dos candidatos quando marcar,
-      path = candidatos_path            #ele continuará lá.
-    else                                #Caso não, (estará na página do político e)
-      path = candidato_path(@candidato) #ele continuará na página do político.
-    end
+    path = (current_page?(candidatos_path)) ? candidatos_path : (candidato_path(@candidato))
     redirect_to path, notice: "#{@candidato.nome_urna} foi marcado com sucesso."
   end
 
   def update
-    desativado = !@marcado.desativado
+    desativado = @marcado.desativado
     authorize @marcado
-    @marcado.update(desativado: desativado)
+    @marcado.update(desativado: !desativado)
     if desativado
-      notice = "#{@marcado.candidato.nome_urna} foi desmarcado com sucesso."
-    else
       notice = "#{@marcado.candidato.nome_urna} foi marcado com sucesso."
+    else
+      notice = "#{@marcado.candidato.nome_urna} foi desmarcado com sucesso."
     end
-    redirect_to user_root_path, notice: notice
+    path = (current_page?(candidatos_path)) ? candidatos_path : (candidato_path(@marcado.candidato))
+    redirect_to path, notice: notice
   end
 
   private
