@@ -17,10 +17,10 @@ class MarcadosController < ApplicationController
   end
 
   def update
-    destroyed = !@marcado.destroyed
+    desativado = !@marcado.desativado
     authorize @marcado
-    @marcado.update(destroyed: destroyed)
-    if destroyed
+    @marcado.update(desativado: desativado)
+    if desativado
       notice = "#{@marcado.candidato.nome_urna} foi desmarcado com sucesso."
     else
       notice = "#{@marcado.candidato.nome_urna} foi marcado com sucesso."
