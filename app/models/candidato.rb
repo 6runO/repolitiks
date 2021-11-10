@@ -6,7 +6,7 @@ class Candidato < ApplicationRecord
   has_one_attached :photo
 
   validates :cpf, :nome_candidato, :email, :nascimento, :grau_instrucao, :ocupacao,
-            :partido, :cargo, :estado, :nome_urna, :ano_eleicao, presence: true
+            :partido, :cargo, :estado, :nome_urna, :ano_eleicao, :status_eleicao, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_nome_urna,
