@@ -27,7 +27,7 @@ csv.each do |row|
   c.estado = row['ESTADO']
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
-  c.status_eleicao = row['STATUS_ELEICAO']
+  c.status_eleicao = row['ELEITO']
 
   foto = row['SQ_CANDIDATO']
   # string = "/(?:......)/gm"
