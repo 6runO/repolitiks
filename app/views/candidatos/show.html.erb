@@ -21,7 +21,7 @@
         <%= cl_image_tag @candidato.photo.key, crop: :fit %>
         <p class="card-text text-center">Cargo atual: <%= @candidato.cargo %></p>
         <p class="card-text text-center">Partido: <%= @candidato.partido %></p>
-        <p class="card-text text-center">Idade: <%= Date.today.year - @candidato.nascimento.year %></p>
+        <%# <p class="card-text text-center">Idade: <%= Date.today.year - @candidato.nascimento.year %>
         <p class="card-text text-center">Data de nascimento: <%= @candidato.nascimento %></p>
         <p class="card-text text-center">Escolaridade: <%= @candidato.grau_instrucao.downcase %></p>
         <p class="card-text text-center">Ocupação anterior: <%= @candidato.ocupacao.capitalize %></p>
