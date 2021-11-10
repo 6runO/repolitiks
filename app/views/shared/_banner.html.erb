@@ -12,7 +12,7 @@ url(https://res.cloudinary.com/doewgeg5j/image/upload/v1636382044/production/Rep
     <%=form_tag candidatos_path, :method => "get" do %>
       <h6><span style="color:white">Digite o nome, partido ou UF de um político</span></h6>
       <%= text_field_tag :query, params[:query]  %>
-      <%= submit_tag "Repolitizar", class: "btn btn-primary"  %>
+      <%= submit_tag "Repolitizar", class: "btn btn-gradient"  %>
     <% end %>
   </div>
 </div>
