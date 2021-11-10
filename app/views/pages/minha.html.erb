@@ -6,9 +6,11 @@
   <h5>Políticos Seguidos</h5>
   <div class="row">
     <% current_user.candidatos.each do |candidato| %>
-      <div class="col-sm-6 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
-        <%= render "shared/card_candidato", candidato: candidato %>
-      </div>
+      <% if candidato.marcados.find_by(user_id: current_user).desativado == false %>
+        <div class="col-sm-6 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
+          <%= render "shared/card_candidato", candidato: candidato %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
