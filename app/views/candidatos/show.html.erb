@@ -19,8 +19,10 @@
       <div class="tab-pane fade show active" id="dados" role="tabpanel" aria-labelledby="home-tab">
         <p class="card-text text-center">Nome completo: <%= @candidato.nome_candidato %></p>
         <%= cl_image_tag @candidato.photo.key, crop: :fit %>
-        <p class="card-text text-center">Cargo atual: <%= @candidato.cargo %></p>
         <p class="card-text text-center">Partido: <%= @candidato.partido %></p>
+
+        <p class="card-text text-center">Cargo pleiteado: <%= @candidato.cargo %></p>
+        <p class="card-text text-center">Resultado Eleição: <%= @candidato.status_eleicao %></p>
         <%# <p class="card-text text-center">Idade: <%= Date.today.year - @candidato.nascimento.year %>
         <p class="card-text text-center">Data de nascimento: <%= @candidato.nascimento %></p>
         <p class="card-text text-center">Escolaridade: <%= @candidato.grau_instrucao.downcase %></p>
