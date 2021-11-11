@@ -9,10 +9,9 @@ class MarcadosController < ApplicationController
     @marcado.user = current_user
     @marcado.candidato = @candidato
     authorize @marcado
-    @marcado.save
     path = (current_page?(candidatos_path)) ? candidatos_path : candidato_path(@candidato)
-    # raise
-    # redirect_to path, notice: "#{@candidato.nome_urna} foi marcado(a) com sucesso."
+    @marcado.save
+    redirect_to path, notice: "#{@candidato.nome_urna} foi marcado(a) com sucesso."
   end
 
   def update

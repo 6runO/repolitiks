@@ -11,8 +11,8 @@
         <li class="nav-item">
           <a class="nav-link" id="propostas-tab" data-toggle="tab" href="#propostas" role="tab" aria-controls="propostas" aria-selected="false">Propostas</a>
         </li>
-        <% if user_signed_in? %>
-          <li class="nav-item ml-auto">
+        <li class="nav-item ml-auto">
+          <% if user_signed_in? %>
             <% if current_user.candidatos.include? @candidato %>
               <% marcado = current_user.marcados.find_by(candidato_id: @candidato.id) %>
               <% if marcado.desativado == true %>
@@ -23,8 +23,10 @@
             <% else %>
               <%= link_to 'Seguir Político', candidato_marcados_path(@candidato), method: :post, class: 'btn btn-warning m-0 btn-seguir' %>
             <% end %>
-          </li>
-        <% end %>
+          <% else %>
+            <%= link_to 'Seguir Político', user_root_path, class: 'btn btn-warning m-0 btn-seguir' %>
+          <% end %>
+        </li>
       </ul>
     </div>
 
