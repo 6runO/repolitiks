@@ -28,6 +28,8 @@ csv.each do |row|
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
   c.status_eleicao = row['ELEITO']
+  c.tipo_bem_candidato = row['TIPO_BEM_CANDIDATO']
+  c.valor_bem_candidato = row['BEM_CANDIDATO']
 
   foto = row['SQ_CANDIDATO']
   # string = "/(?:......)/gm"
