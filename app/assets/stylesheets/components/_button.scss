@@ -1,18 +1,26 @@
 .btn-gradient{
-  background: linear-gradient(to right, rgb(30, 30, 30), rgb(200, 200, 200));
+  background-color: black;
   color: white;
-  border: 1px solid black;
+  opacity: 1;
+  border: 2px solid black;
   border-radius: 3px;
   font-size: 16px;
   padding: 6px 18px;
 }
 
 .btn-gradient:hover{
-  opacity: 0.8;
   color: white;
-}
-
-.btn-minha{
-  right: 18px;
-  top: 32px;
+  //*** Opção 1: Gradiente ***//
+  // background-color: #2d3436;
+  // background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+  //*** Opção 2: Gradiente2 ***//
+  // background-color: #000000;
+  // background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  //*** Opção 3: Invertido com borda ***//
+  // color: white;
+  // background-color: rgb(240, 240, 240);
+  // opacity: 0.9;
+  //*** Opção 4: Shadow ***//
+  text-shadow: 1px 1px 3px rgba(250,250,250,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
 }
