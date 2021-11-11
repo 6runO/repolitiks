@@ -2,13 +2,20 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 3px;
   flex-basis: 0;
   flex-grow: 1;
+  position: relative;
 }
 
 .card-candidato:hover {
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.card-bottom{
+  position: absolute;
+  bottom: 13px;
+  width: calc(100% - 32px);
 }
 
 .card-candidato > img {
@@ -18,7 +25,7 @@
 }
 
 .card-candidato h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
@@ -51,4 +58,12 @@
 a.link-candidato {
   text-decoration: none;
   color: inherit;
+}
+
+.pin-amarelo{
+  color: rgb(255, 217, 0);
+}
+
+.pin-cinza{
+  color: rgb(200, 200, 200);
 }
