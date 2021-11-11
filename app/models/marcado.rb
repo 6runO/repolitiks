@@ -3,10 +3,6 @@ class Marcado < ApplicationRecord
   belongs_to :candidato
 
   validates :user_id, :candidato_id, presence: true
-
-  before_create :default_values
-
-  def default_values
-    self.destroyed = false
-  end
+  validates :user_id, uniqueness: { scope: :candidato_id,
+    message: "este candidato já foi marcado anteriormente" }
 end

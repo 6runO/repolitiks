@@ -5,12 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'csv'
+puts "Apagando registros anteriores..."
+Marcado.delete_all
+Candidato.delete_all
 
-Candidato.destroy_all
-
+puts "Criando novos registros..."
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_2018.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-2')
 csv.each do |row|
   c = Candidato.new
   c.cpf = row['CPF']
@@ -24,8 +27,16 @@ csv.each do |row|
   c.estado = row['ESTADO']
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
+  c.status_eleicao = row['ELEITO']
+
+  foto = row['SQ_CANDIDATO']
+  # string = "/(?:......)/gm"
+  # regex = Regexp.new(string)
+
+  c.photo.attach(io: File.open("app/assets/images/fotos_2018/#{foto}.jpg"), filename: "#{foto}.jpg")
+
   c.save
-  puts "#{c.nome_urna}, #{c.cargo} saved"
+  puts "#{c.nome_urna}, #{c.partido} saved!"
 end
 
-puts "Existem agora #{Candidato.count} rows na tabela candidatos."
+puts "Agora existem #{Candidato.count} registros na tabela candidatos."

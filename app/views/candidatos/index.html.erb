@@ -1,28 +1,26 @@
-<div class="container mt-4">
-
-  <% if user_signed_in? %>
-    <div class="text-right">
-      <%= link_to "Minha página", "#", class: "btn btn-primary" %>
-    </div>
+<div class="container">
+  <div class="text-center py-4 position-relative">
+    <h1>Candidatos</h1>
+    <% if user_signed_in? %>
+    <%# <div class="text-right position-absolute"> %>
+      <%= link_to "Minha página", user_root_path, class: "btn btn-gradient position-absolute btn-minha" %>
+    <%# </div> %>
   <% end %>
+  </div>
 
   <div class="container">
     <div class="row">
       <% @candidatos.each do |candidato| %>
         <div class="col-sm-6 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
-          <%= link_to candidato_path(candidato), class:"link-candidato" do %>
-            <%= render "shared/card_candidato", candidato: candidato %>
-          <% end %>
+          <%= render "shared/card_candidato", candidato: candidato %>
         </div>
       <% end %>
     </div>
+    <%= paginate @candidatos %>
   </div>
 
   <hr>
-  <a href="#">Botão para carregar mais cards</a>
-  <br>
   <a href="#">Voltar ao topo</a>
   <br>
   <br>
-
 </div>

@@ -64,5 +64,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pundit'
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test] Já está litada acima
 gem 'cloudinary', '~> 1.16.0'
+
+# Gema para busca
+gem 'pg_search', '~> 2.3.0'
+gem 'kaminari'

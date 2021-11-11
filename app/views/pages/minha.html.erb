@@ -1,4 +1,18 @@
-<h2>Esta é a página personalisada do usuário: user_root_path</h2>
+<div class="container">
+  <div class="text-center my-3">
+    <h2>Minha página</h2>
+  </div>
 
-<p>Nome: <%= current_user.nome %></p>
-<p>Email: <%= current_user.email %></p>
+  <% if @candidatos.blank? %>
+    <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-cinza"></i> ou clicar no botão <span class="btn-warning"> Seguir candidato </span>.</h5>
+  <% else %>
+    <h5>Políticos Seguidos</h5>
+    <div class="row">
+      <% @candidatos.each do |candidato| %>
+        <div class="col-sm-6 col-lg-3 mb-4 d-flex align-items-stretch justify-content-center">
+          <%= render "shared/card_candidato", candidato: candidato %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
