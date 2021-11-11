@@ -6,9 +6,12 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :html, :js
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super do |resource|
+      @user_login = resource
+      @user_login.valid?
+    end
+  end
 
   # POST /resource/sign_in
   # def create
