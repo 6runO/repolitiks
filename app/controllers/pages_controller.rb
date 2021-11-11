@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   end
 
   def minha
-
+    @candidatos = current_user.candidatos.select do |candidato|
+      candidato.marcados.find_by(user_id: current_user).desativado == false
+    end
   end
 end

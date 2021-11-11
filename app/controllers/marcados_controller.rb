@@ -1,6 +1,4 @@
 class MarcadosController < ApplicationController
-  include ActionView::Helpers::UrlHelper
-
   before_action :set_candidato, only: [:create]
   before_action :set_marcado, only: [:update]
 
@@ -9,9 +7,8 @@ class MarcadosController < ApplicationController
     @marcado.user = current_user
     @marcado.candidato = @candidato
     authorize @marcado
-    path = (current_page?(candidatos_path)) ? candidatos_path : candidato_path(@candidato)
     @marcado.save
-    redirect_to path, notice: "#{@candidato.nome_urna} foi marcado(a) com sucesso."
+    redirect_to request.referrer, notice: "#{@candidato.nome_urna} foi marcado(a) com sucesso."
   end
 
   def update
@@ -23,15 +20,7 @@ class MarcadosController < ApplicationController
     else
       notice = "#{@marcado.candidato.nome_urna} foi desmarcado(a) com sucesso."
     end
-    if current_page?(user_root_path)
-      path = user_root_path
-    elsif current_page?(candidatos_path)
-      path = candidatos_path
-    else
-      path = candidato_path(@marcado.candidato)
-    end
-    # path = (current_page?(candidatos_path)) ? candidatos_path : (candidato_path(@marcado.candidato))
-    redirect_to path, notice: notice
+    redirect_to request.referrer, notice: notice
   end
 
   private
