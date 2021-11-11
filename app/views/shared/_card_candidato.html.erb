@@ -7,7 +7,7 @@
 
   <div class="card-candidato-infos">
     <div class="d-flex align-items-start justify-content-between">
-      <h2 class="pr-2"><%= candidato.nome_urna %></h2>
+      <h2 class="pr-4"><%= candidato.nome_urna %></h2>
 
       <% if user_signed_in? %>
         <% if current_user.candidatos.include? candidato %>
