@@ -11,7 +11,8 @@ class MarcadosController < ApplicationController
     authorize @marcado
     @marcado.save
     path = (current_page?(candidatos_path)) ? candidatos_path : candidato_path(@candidato)
-    redirect_to path, notice: "#{@candidato.nome_urna} foi marcado com sucesso."
+    raise
+    redirect_to path, notice: "#{@candidato.nome_urna} foi marcado(a) com sucesso."
   end
 
   def update
@@ -19,9 +20,9 @@ class MarcadosController < ApplicationController
     authorize @marcado
     @marcado.update(desativado: !desativado)
     if desativado
-      notice = "#{@marcado.candidato.nome_urna} foi marcado com sucesso."
+      notice = "#{@marcado.candidato.nome_urna} foi marcado(a) com sucesso."
     else
-      notice = "#{@marcado.candidato.nome_urna} foi desmarcado com sucesso."
+      notice = "#{@marcado.candidato.nome_urna} foi desmarcado(a) com sucesso."
     end
     if current_page?(user_root_path)
       path = user_root_path
