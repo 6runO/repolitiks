@@ -27,7 +27,8 @@
           <% end %>
         <% end %>
       <% else %>
-        <%= link_to user_root_path do %>
+        <%= link_to "", data: { toggle: "modal", target: "#exampleModalCenter" } do %>
+        <%# <%= link_to user_root_path do %>
           <i class="fas fa-thumbtack pin-cinza"></i>
         <% end %>
       <% end %>
@@ -42,4 +43,8 @@
       <h2 class="card-candidato-pricing"><%= candidato.partido %></h2>
     </div>
   </div>
+</div>
+
+<div class="modal fade log-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <%= render "shared/login_modal" %>
 </div>

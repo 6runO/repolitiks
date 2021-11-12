@@ -5,11 +5,9 @@
     <p class="text-logo mb-0"><span class="logo-main2">REPOLITIKS</span><span class="logo-mirror2">REPOLITIKS</span></p>
   <% end %>
 
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -33,7 +31,8 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Entrar", new_user_session_path, class: "nav-link nav-login rounded ml-2" %>
+          <%# <%= link_to "Entrar", new_user_session_path, class: "nav-link nav-login rounded ml-2" %>
+          <%= link_to "Entrar", "", data: { toggle: "modal", target: "#exampleModalCenter" } , class: "nav-link nav-login rounded ml-2" %>
         </li>
       <% end %>
     </ul>
