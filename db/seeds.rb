@@ -13,7 +13,7 @@ Marcado.delete_all
 Candidato.delete_all
 
 puts "Criando novos registros..."
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'teste.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_2018.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
   c = Candidato.new
@@ -45,13 +45,13 @@ csv.each do |row|
   end
 
   # # Seed das propostas
-  # pdf = row['SQ_CANDIDATO']
-  # file_proposta = "app/assets/documents/Propostas_2018/#{pdf}.pdf"
+  pdf = row['SQ_CANDIDATO']
+  file_proposta = "app/assets/documents/Propostas_2018/#{pdf}.pdf"
 
-  # if File.exist?(file_proposta)
-  #   proposta_open = File.open(file_proposta)
-  #   c.proposta.attach(io: proposta_open, filename: "#{pdf}.pdf")
-  # end
+  if File.exist?(file_proposta)
+    proposta_open = File.open(file_proposta)
+    c.proposta.attach(io: proposta_open, filename: "#{pdf}.pdf")
+  end
 
   # Salvando seeds
   c.save
@@ -60,7 +60,7 @@ end
 
 puts "Agora existem #{Candidato.count} registros na tabela candidatos."
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'teste_bem_candidato_2018.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'bem_candidato_2018.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
   bem = Declarado.new
