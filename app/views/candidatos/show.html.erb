@@ -47,8 +47,20 @@
         <p class="card-text text-center">Estado: <%= @candidato.estado %></p>
         <p class="card-text text-center">Email para contato: <%= @candidato.email.downcase %></p>
       </div>
-      <div class="tab-pane fade text-center" id="bens" role="tabpanel" aria-labelledby="bens-tab">Em breve, informações sobre os bens do político</div>
-      <div class="tab-pane fade text-center" id="propostas" role="tabpanel" aria-labelledby="propostas-tab">Em breve, informações sobre as propostas do político</div>
+      <div class="tab-pane fade text-center" id="bens" role="tabpanel" aria-labelledby="bens-tab">
+        <% @candidato.declarados.each do |declarado| %>
+          <p class="card-text text-center">Tipo de bem Declarado: <%= declarado.tipo %></p>
+          <p class="card-text text-center">Valor do bem Declarado: R$ <%= declarado.valor %></p>
+        <% end %>
+      </div>
+      <div class="tab-pane fade text-center" id="propostas" role="tabpanel" aria-labelledby="propostas-tab">
+        <% if @candidato.cargo == "GOVERNADOR" || @candidato.cargo == "PRESIDENTE" %>
+          <p class="card-text text-center"><%= link_to @candidato.proposta.blob.filename, rails_blob_path(@candidato.proposta, disposition: "attachment") %></p>
+          <%# <%= link_to @candidato.proposta.blob.filename %>
+        <% else %>
+          <p class="card-text text-center">Não disponível</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
