@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_224205) do
+ActiveRecord::Schema.define(version: 2021_11_12_202940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 2021_11_09_224205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status_eleicao"
+    t.string "sexo"
+    t.string "sq_candidato"
+  end
+
+  create_table "declarados", force: :cascade do |t|
+    t.string "tipo"
+    t.float "valor"
+    t.bigint "candidato_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "sq_candidato"
+    t.index ["candidato_id"], name: "index_declarados_on_candidato_id"
   end
 
   create_table "informacaos", force: :cascade do |t|
@@ -90,6 +102,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_224205) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "declarados", "candidatos"
   add_foreign_key "informacaos", "candidatos"
   add_foreign_key "marcados", "candidatos"
   add_foreign_key "marcados", "users"

@@ -8,12 +8,13 @@
 
 require 'csv'
 puts "Apagando registros anteriores..."
+Declarado.delete_all
 Marcado.delete_all
 Candidato.delete_all
 
 puts "Criando novos registros..."
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_2018.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-2')
+csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
   c = Candidato.new
   c.cpf = row['CPF']
@@ -28,15 +29,50 @@ csv.each do |row|
   c.nome_urna = row['NOME_URNA']
   c.ano_eleicao = row['ANO_ELEICAO']
   c.status_eleicao = row['ELEITO']
+  c.sexo = row['SEXO']
+  c.sq_candidato = row['SQ_CANDIDATO']
 
+
+  # Seed das fotos
   foto = row['SQ_CANDIDATO']
-  # string = "/(?:......)/gm"
-  # regex = Regexp.new(string)
+  file = "app/assets/images/fotos_2018/#{foto}.jpg"
 
-  c.photo.attach(io: File.open("app/assets/images/fotos_2018/#{foto}.jpg"), filename: "#{foto}.jpg")
+  if File.exist?(file)
+    file_open = File.open(file)
+    c.photo.attach(io: file_open, filename: "#{foto}.jpg")
+  else
+    c.photo.attach(io: File.open("app/assets/images/foto_padrao.jpg"), filename: "foto_padrao.jpg")
+  end
 
+  # # Seed das propostas
+  pdf = row['SQ_CANDIDATO']
+  file_proposta = "app/assets/documents/Propostas_2018/#{pdf}.pdf"
+
+  if File.exist?(file_proposta)
+    proposta_open = File.open(file_proposta)
+    c.proposta.attach(io: proposta_open, filename: "#{pdf}.pdf")
+  end
+
+  # Salvando seeds
   c.save
   puts "#{c.nome_urna}, #{c.partido} saved!"
 end
 
 puts "Agora existem #{Candidato.count} registros na tabela candidatos."
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'bem_candidato_2018.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
+csv.each do |row|
+  bem = Declarado.new
+  bem.tipo = row['TIPO_BEM']
+  bem.valor = row['BEM_VALOR'].to_f
+  r_sq = row['SQ_CANDIDATO']
+  bem.sq_candidato = r_sq
+  candidato = Candidato.find_by(sq_candidato: r_sq)
+
+  unless candidato.nil?
+    bem.candidato = Candidato.find_by(sq_candidato: r_sq)
+    bem.save!
+    puts "Bens salvos"
+  end
+end
