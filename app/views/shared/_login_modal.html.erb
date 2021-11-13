@@ -1,14 +1,14 @@
 <div class="modal-dialog modal-dialog" role="document">
-  <div class="modal-content py-2">
+  <div class="modal-content py-1">
     <div class="modal-header py-1 px-4 align-items-center text-center">
       <h3 class="modal-title flex-grow-1" id="exampleModalCenterTitle">
-        <p class="logo-font mb-0"><span class="logo-decrescendum logo-border-right logo-medium pr-1">RE</span><span class="logo-decrescendum logo-medium pl-1">PLTKS</span></p>
+        <p class="logo-font mb-0"><span class="logo-decrescendum logo-border-right logo-small pr-1">RE</span><span class="logo-decrescendum logo-small pl-1">PLTKS</span></p>
       </h3>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body p-3">
+    <div class="modal-body px-2 py-2">
       <%# navtab %>
       <div class="container pl-0 pr-0">
         <div class="card">
@@ -27,17 +27,17 @@
             <%# <h2 class="card-title text-center mt-3">Entrar/Cadastrar</h2> %>
             <div class="tab-pane fade show active" id="entrar" role="tabpanel" aria-labelledby="home-tab">
               <%# login form %>
-              <div class="py-3 px-3">
+              <div class="py-2 px-3">
                 <%= simple_form_for(@user_login, url: user_session_path, remote: true) do |f| %>
                   <%= f.error_notification %>
                   <div class="form-inputs">
                       <%= f.input :email,
                                   required: false,
                                   autofocus: true,
-                                  input_html: { autocomplete: "email" } %>
+                                  input_html: { autocomplete: "email", class: "input-modal" } %>
                       <%= f.input :password, label: "Senha",
                                   required: false,
-                                  input_html: { autocomplete: "current-password" } %>
+                                  input_html: { autocomplete: "current-password", class: "input-modal" } %>
                       <%= f.input :remember_me, label: "Mantenha-me conectado", as: :boolean if devise_mapping.rememberable? %>
                   </div>
                   <div class="form-actions">
@@ -45,16 +45,43 @@
                   </div>
                 <% end %>
                 <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "link-modal" %><br />
+                <hr>
+                <p class="m-0" style="color: #E67E22; font-size: 14px;">Não possui uma conta? Clique em "Cadastrar-se".</p>
               </div>
             </div>
-            <div class="tab-pane fade text-center" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+            <div class="tab-pane fade" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
               <%# sign up form %>
-
-
+              <div class="py-2 px-3">
+                <%# <%= simple_form_for(@user_sign_up, url: user_registration_path, remote: true) do |f| %>
+                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
+                  <%# <%= f.error_notification %>
+                  <div class="errors" style="color: red; font-size: 18px"></div>
+                  <div class="form-inputs">
+                    <%= f.input :nome,
+                                required: true,
+                                autofocus: true,
+                                input_html: { autocomplete: "nome", class: "input-modal" } %>
+                    <%= f.input :email,
+                                required: true,
+                                autofocus: true,
+                                input_html: { autocomplete: "email", class: "input-modal" } %>
+                    <%= f.input :password, label: "Senha",
+                                required: true,
+                                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                                input_html: { autocomplete: "new-password", class: "input-modal" } %>
+                    <%= f.input :password_confirmation, label: "Confirmar senha",
+                                required: true,
+                                input_html: { autocomplete: "new-password", class: "input-modal" } %>
+                  </div>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Cadastrar",  class: "btn btn-dark w-100 mb-2" %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-        <div class="pt-3 pb-1 d-flex">
+        <div class="pt-2 pb-1 d-flex">
           <%# <%= link_to "Cadastrar-se", new_registration_path(resource_name), class: "btn btn-success" %>
           <button type="button" class="btn btn-secondary ml-auto mr-0" data-dismiss="modal">Fechar</button>
         </div>
