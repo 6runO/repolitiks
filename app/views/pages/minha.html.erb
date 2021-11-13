@@ -8,11 +8,11 @@
   <% end %>
 
   <%= link_to candidatos_path do %>
-    <div class="btn btn-secondary"><i class="fas fa-search"></i> Pesquisar políticos</div>
+    <div class="btn btn-dark"><i class="fas fa-search"></i> Pesquisar políticos</div>
   <% end %>
 
   <% if @candidatos.blank? %>
-    <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1">Seguir candidato</span>.</h5>
+    <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1 rounded">Seguir candidato</span>.</h5>
   <% else %>
     <h5>Políticos Seguidos</h5>
     <div class="row">

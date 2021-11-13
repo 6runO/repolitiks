@@ -4,13 +4,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  respond_to :html, :js
+
   # GET /resource/sign_up
   def new
     super do |resource|
-      @user_signup = resource
-      @user_signup.valid?
+      @user_sign_up = resource
+      @user_sign_up.valid?
     end
   end
+  # def new
+  #   super
+  # end
 
   # POST /resource
   # def create
