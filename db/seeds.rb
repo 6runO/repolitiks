@@ -45,13 +45,13 @@ csv.each do |row|
   end
 
   # # Seed das propostas
-  pdf = row['SQ_CANDIDATO']
-  file_proposta = "app/assets/documents/Propostas_2018/#{pdf}.pdf"
+  # pdf = row['SQ_CANDIDATO']
+  # file_proposta = "app/assets/documents/Propostas_2018/#{pdf}.pdf"
 
-  if File.exist?(file_proposta)
-    proposta_open = File.open(file_proposta)
-    c.proposta.attach(io: proposta_open, filename: "#{pdf}.pdf")
-  end
+  # if File.exist?(file_proposta)
+  #   proposta_open = File.open(file_proposta)
+  #   c.proposta.attach(io: proposta_open, filename: "#{pdf}.pdf")
+  # end
 
   # Salvando seeds
   c.save
