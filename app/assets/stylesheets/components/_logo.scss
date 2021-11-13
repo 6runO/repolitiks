@@ -1,0 +1,34 @@
+.logo-font{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.logo-decrescendum{
+  background: linear-gradient(to right, black , rgb(220, 220, 220));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-fading{
+  background: linear-gradient(to right, black , rgb(235, 235, 235));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-crescendum{
+  background: linear-gradient(to right, rgb(180, 180, 180), rgb(60, 60, 60));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+}
+
+.logo-border-right {
+  border-right: rgba($color: #000000, $alpha: 0.6) solid 2px;
+}
+
+.logo-medium {
+  font-size: 32px;
+}
+
+.logo-small {
+  font-size: 20px;
+}

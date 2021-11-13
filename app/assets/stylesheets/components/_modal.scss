@@ -1,11 +1,10 @@
-.modal-content  {
+.modal-content {
     -webkit-border-radius: 3px !important;
     -moz-border-radius: 3px !important;
     border-radius: 3px !important;
     max-width: 400px;
 }
 
-.nav-link .dark .active a,
-.nav-link .dark .active a:hover {
-    background-color: #292b2c;
+.link-modal, .link-modal:hover {
+  color: $secondary
 }
