@@ -1,5 +1,5 @@
 <%# <div class="card-candidato flex-grow-1"> %>
-<div id="candidato-<% candidato.id %>" class="card-candidato">
+<div class="card-candidato">
   <%# <%= link_to candidato_path(candidato), class:"link-candidato stretched-link" do %>
   <%= link_to candidato_path(candidato), class:"link-candidato" do %>
     <%= cl_image_tag candidato.photo.key, height: 300, width: 400, crop: :fit %>
@@ -28,7 +28,6 @@
         <% end %>
       <% else %>
         <%= link_to "", data: { toggle: "modal", target: "#exampleModalCenter" } do %>
-        <%# <%= link_to user_root_path do %>
           <i class="fas fa-thumbtack pin-cinza"></i>
         <% end %>
       <% end %>

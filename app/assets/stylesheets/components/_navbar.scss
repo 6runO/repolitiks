@@ -12,7 +12,6 @@
 }
 
 .text-logo {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 32px;
 }
 
@@ -20,32 +19,6 @@
   .text-logo {
     font-size: 20px;
   }
-}
-
-.logo-main{
-  background: linear-gradient(to right, black , rgb(220, 220, 220));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logo-mirror{
-  background: linear-gradient(to right, black , rgb(220, 220, 220));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logo-main2{
-  background: linear-gradient(to right, black , rgb(225, 225, 225));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logo-mirror2{
-  background: linear-gradient(to right, rgb(180, 180, 180), rgb(70, 70, 70));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.3;
-  border-left: black solid 2px;
 }
 
 .nav-login{
