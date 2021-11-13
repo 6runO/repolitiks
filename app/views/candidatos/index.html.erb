@@ -7,7 +7,10 @@
     <%# </div> %>
   <% end %>
   </div>
-
+  <div class="text-center mt-3">
+    <small class="text-muted">Encontramos <%= Candidato.page.total_pages %> páginas,
+    com <%= Candidato.count %> candidatos no total.</small>
+  </div>
   <div class="pt-4">
     <div class="row">
       <% @candidatos.each do |candidato| %>
@@ -18,7 +21,6 @@
     </div>
   </div>
   <%= paginate @candidatos %>
-
   <hr>
   <a href="#">Voltar ao topo</a>
   <br>
