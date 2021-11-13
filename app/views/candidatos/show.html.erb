@@ -58,11 +58,11 @@
         <% end %>
       </div>
       <div class="tab-pane fade text-center" id="propostas" role="tabpanel" aria-labelledby="propostas-tab">
-        <% if @candidato.cargo == "GOVERNADOR" || @candidato.cargo == "PRESIDENTE" %>
+        <% if @candidato.cargo == "PRESIDENTE" || @candidato.cargo == "GOVERNADOR" && @candidato.status_eleicao == "ELEITO" %>
           <p class="card-text text-center">Faça o download da proposta do candidato: <%= link_to @candidato.proposta.blob.filename, rails_blob_path(@candidato.proposta, disposition: "attachment") %></p>
           <%# <%= link_to @candidato.proposta.blob.filename %>
         <% else %>
-          <p class="card-text text-center">Não disponível</p>
+          <p class="card-text text-center">Proposta não disponibilizada pelo candidato</p>
         <% end %>
       </div>
     </div>

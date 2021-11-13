@@ -13,6 +13,8 @@ Marcado.delete_all
 Candidato.delete_all
 
 puts "Criando novos registros..."
+
+# Seed dos candidatos
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_2018.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
@@ -32,8 +34,7 @@ csv.each do |row|
   c.sexo = row['SEXO']
   c.sq_candidato = row['SQ_CANDIDATO']
 
-
-  # Seed das fotos
+  # # Seed das fotos
   foto = row['SQ_CANDIDATO']
   file = "app/assets/images/fotos_2018/#{foto}.jpg"
 
@@ -54,12 +55,13 @@ csv.each do |row|
   end
 
   # Salvando seeds
-  c.save
+  c.save!
   puts "#{c.nome_urna}, #{c.partido} saved!"
 end
 
 puts "Agora existem #{Candidato.count} registros na tabela candidatos."
 
+# Seed dos bens
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'bem_candidato_2018.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
