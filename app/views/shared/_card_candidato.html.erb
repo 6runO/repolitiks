@@ -13,16 +13,16 @@
         <% if current_user.candidatos.include? candidato %>
           <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
           <% if marcado.desativado == true %>
-            <%= link_to marcado_path(marcado), method: :patch do %>
+            <%= link_to marcado_path(marcado), method: :patch, remote: true  do %>
               <i class="fas fa-thumbtack pin-cinza"></i>
             <% end %>
           <% else %>
-            <%= link_to marcado_path(marcado), method: :patch do %>
+            <%= link_to marcado_path(marcado), method: :patch, remote: true  do %>
               <i class="fas fa-thumbtack pin-amarelo"></i>
             <% end %>
           <% end %>
         <% else %>
-          <%= link_to candidato_marcados_path(candidato), method: :post do %>
+          <%= link_to candidato_marcados_path(candidato), method: :post, remote: true  do %>
             <i class="fas fa-thumbtack pin-cinza"></i>
           <% end %>
         <% end %>
