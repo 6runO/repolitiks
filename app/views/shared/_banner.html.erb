@@ -2,17 +2,19 @@
 linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
 url(https://res.cloudinary.com/doewgeg5j/image/upload/v1636382044/production/Repolitiks/Banner/congresso-02_fusvev.jpg);">
   <div class="container">
-    <h1>Repensar, refletir, reconsiderar, refazer, ressignificar...a política!</h1>
+    <h1>Repensar, refletir, reconsiderar, refazer, ressignificar... a política!</h1>
     <p>Acompanhe e monitore os políticos de seu interesse</p>
     <% if !user_signed_in? %>
       <%# <%= link_to "Quero Repolitizar", new_user_registration_path, class:"btn btn-primary" %>
     <% end %>
   </div>
   <div class="container text-center py-5">
-    <%=form_tag candidatos_path, :method => "get" do %>
+    <%= form_tag candidatos_path, method: "get" do %>
       <h6><span style="color:white">Digite o nome, cargo, partido ou UF de um político</span></h6>
-      <%= text_field_tag :query, params[:query]  %>
-      <%= submit_tag "Repolitizar", class: "btn btn-gradient"  %>
+      <div class="banner-form">
+        <%= text_field_tag :query, params[:query], class: 'w-100 h-100 bg-white banner-input pl-3' %>
+        <%= submit_tag "Repolitizar", class: "banner-btn btn btn-gradient btn-sm" %>
+      </div>
     <% end %>
   </div>
 </div>
