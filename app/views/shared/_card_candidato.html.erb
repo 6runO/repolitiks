@@ -1,14 +1,14 @@
 <%# <div class="card-candidato flex-grow-1"> %>
 <div class="card-candidato">
   <%# <%= link_to candidato_path(candidato), class:"link-candidato stretched-link" do %>
-  <div class="text-center mt-2">
-    <%= link_to candidato_path(candidato), class:"link-candidato" do %>
-      <%= cl_image_tag candidato.photo.key, :transformation=>[
-    {:radius=>"max"},
-    {:height=>150, :crop=>"scale"}
-    ] %>
-    <% end %>
-  </div>
+  <%= link_to candidato_path(candidato), class:"link-candidato" do %>
+    <div class="text-center mt-2">
+        <%= cl_image_tag candidato.photo.key, :transformation=>[
+      {:radius=>"max"},
+      {:height=>150, :crop=>"scale"}
+      ] %>
+    </div>
+  <% end %>
 
   <div class="card-candidato-infos">
     <div class="d-flex align-items-start justify-content-between">
