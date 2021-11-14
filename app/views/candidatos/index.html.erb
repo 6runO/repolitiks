@@ -1,20 +1,22 @@
 <div class="container bg-white rounded py-2 mt-2">
-    <%= form_tag candidatos_path, method: :get do %>
-      <div class="search-bar d-flex">
-        <%= text_field_tag :nome, params[:nome], placeholder: "Nome", class: '' %>
-        <%= text_field_tag :cargo, params[:cargo], placeholder: "Cargo (Ex.: senador)", class: '' %>
-        <%= text_field_tag :partido, params[:partido], placeholder: "Partido", class: '' %>
-        <%= select_tag :estados, options_for_select(Candidato::ESTADOS), prompt: "UF" %>
-        <%= button_tag(type: "submit", class: "btn btn-dark") do %>
-          <i class="fas fa-search"></i>
-        <% end %>
-      </div>
-    <% end %>
-    <div class="">
-      <small class="text-muted"><%= pluralize(Candidato.page.total_pages, "página") %>
-      - <%= Candidato.count %> candidatos</small>
+  <%= form_tag candidatos_path, method: :get do %>
+    <div class="search-bar d-flex">
+      <%= text_field_tag :nome, params[:nome], placeholder: "Nome", class: '' %>
+      <%= text_field_tag :cargo, params[:cargo], placeholder: "Cargo (Ex.: senador)", class: '' %>
+      <%= text_field_tag :partido, params[:partido], placeholder: "Partido", class: '' %>
+      <%= select_tag :estado, options_for_select(Candidato::ESTADOS, params[:estado]), prompt: "UF", class: "estados-select" %>
+      <%= button_tag(type: "submit", class: "btn btn-dark") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     </div>
+  <% end %>
+</div>
+<div class="container">
+  <div class="">
+    <small class="text-muted"><%= pluralize(Candidato.page.total_pages, "página") %>
+    - <%= Candidato.count %> candidatos</small>
   </div>
+</div>
 
 <div class="container">
   <div class="d-flex flex-wrap-reverse align-items-center text-center pt-3">
