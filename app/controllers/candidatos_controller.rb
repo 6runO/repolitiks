@@ -12,6 +12,32 @@ class CandidatosController < ApplicationController
     else
       @candidatos = Candidato.page params[:page]
     end
+
+    if params[:nome].present? || params[:cargo].present? || params[:partido].present? || params[:estado].present? || params[:eleito].present?
+      nome = (params[:nome].present?) ? params[:nome] : ""
+      cargo = (params[:cargo].present?) ? params[:cargo] : ""
+      partido = (params[:partido].present?) ? params[:partido] : ""
+      estado = (params[:estado].present?) ? params[:estado] : ""
+      if params[:eleito] == "Sim"
+        eleito = "(true, false)"
+      elsif params[:eleito] == "Não"
+        eleito = "(true, false)"
+      else
+        eleito = "(true, false)"
+      end
+
+      sql_query = "(nome_urna ILIKE :nome OR nome_candidato ILIKE :nome)
+      AND cargo ILIKE :cargo AND partido ILIKE :partido
+      AND estado ILIKE :estado"
+      # AND eleito IN :eleito
+      @candidatos = Candidato.where(sql_query, nome: "%#{nome}%",
+                                    cargo: "%#{cargo}%",
+                                    partido: "%#{partido}%",
+                                    estado: "%#{estado}%").page(params[:page])
+                                    # eleito: eleito).page(params[:page])
+    else
+      @candidatos = Candidato.page params[:page]
+    end
   end
 
   def show

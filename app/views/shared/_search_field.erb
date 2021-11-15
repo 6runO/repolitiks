@@ -1,0 +1,16 @@
+<div class="d-flex align-items-center">
+  <%= form_tag candidatos_path, method: :get do %>
+    <div class="search-field-form">
+      <%= text_field_tag :query, params[:query], placeholder: "Nome, partido...", class: 'search-field-input w-100 h-100 bg-white pl-3 pr-5 ' %>
+      <button type="submit" class="search-field-btn"><i class="fas fa-search"></i></button>
+    </div>
+  <% end %>
+
+  <%= link_to "", data: { toggle: "modal", target: "#searchModal" } , class: "search-field-plus" do %>
+    <i class="fas fa-search-plus"></i>
+  <% end %>
+</div>
+
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalTitle" aria-hidden="true">
+  <%= render "shared/search_modal" %>
+</div>

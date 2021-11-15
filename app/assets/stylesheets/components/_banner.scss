@@ -22,19 +22,20 @@
 
 .banner-form {
   position: relative;
-  height: 39px;
-  width: 325px;
+  height: 38px;
+  width: 315px;
   margin: 0 auto;
 }
 
 .banner-input {
-  border-radius: 5px;
+  border-radius: 4px;
   padding-right: 115px;
+  border: 1px solid black;
 }
 
 .banner-btn {
   position: absolute;
-  top: 3px;
-  // bottom: 2px;
-  right: 3px;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }

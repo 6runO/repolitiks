@@ -9,6 +9,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <% unless current_page?(root_path) %>
+    <%= render "shared/search_field" %>
+  <% end %>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <%= link_to "Políticos", candidatos_path, class: "nav-link mr-2" %>
