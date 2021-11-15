@@ -3,6 +3,39 @@
 //   background-color: blue;
 // }
 
+.search-bar {
+  // width: 85vw;
+  display:inline-flex;
+}
+
+.input-pad {
+  padding: 5px 10px;
+}
+
+.input-big {
+  width: 180px;
+}
+
+.input-medium {
+  width: 120px;
+}
+
+.input-small {
+  width: 80px;
+}
+
+.input-border {
+  border: none;
+}
+
+.select-gray {
+   color: rgba(0, 0, 0, 0.4);
+}
+
+option {
+  color: black;
+}
+
 option:first-of-type {
   color: rgba(0, 0, 0, 0.4);
 }
