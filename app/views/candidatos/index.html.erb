@@ -37,13 +37,10 @@
 </div>
 
 <div class="container">
-  <div class="">
+  <div>
     <small class="text-muted"><%= pluralize(Candidato.page.total_pages, "página") %>
     - <%= Candidato.count %> candidatos</small>
   </div>
-</div>
-
-<div class="container">
   <div class="d-flex flex-wrap-reverse align-items-center text-center pt-3">
     <h2 class="flex-grow-1 my-0 order-sm-0 px-5">Candidatos</h2>
     <% if user_signed_in? %>
