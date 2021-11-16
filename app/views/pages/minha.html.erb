@@ -87,8 +87,15 @@
             <div class="collapse" id="candidato-<%= candidato.id.to_s %>">
               <div class="card card-body">
                 <%# bens do candidato %>
-
-
+                <% if candidato.declarados.empty? %>
+                  <p class="card-text text-center">Não há bens declarados</p>
+                <% else %>
+                  <% candidato.declarados.each do |declarado| %>
+                    <p class="card-text text-center">Tipo de bem Declarado: <%= declarado.tipo %></p>
+                    <p class="card-text text-center">Valor do bem Declarado: R$ <%= declarado.valor %></p>
+                    <hr>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
