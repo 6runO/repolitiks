@@ -9,3 +9,18 @@
 @import "modal";
 @import "logo";
 @import "navtab";
+@import "search_bar";
+@import "search_field";
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.4);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.4);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(0, 0, 0, 0.4);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.4);
+}

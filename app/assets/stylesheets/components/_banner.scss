@@ -19,3 +19,23 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.banner-form {
+  position: relative;
+  height: 38px;
+  width: 315px;
+  margin: 0 auto;
+}
+
+.banner-input {
+  border-radius: 4px;
+  padding-right: 115px;
+  border: 1px solid black;
+}
+
+.banner-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}

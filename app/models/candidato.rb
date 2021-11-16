@@ -1,4 +1,7 @@
 class Candidato < ApplicationRecord
+  ESTADOS = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MS','MT','MG',
+              'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
+
   has_many :marcados, dependent: :destroy
   has_many :declarados, dependent: :destroy
   # has_many :users, through: :marcados

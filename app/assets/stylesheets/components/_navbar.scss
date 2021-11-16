@@ -11,15 +11,19 @@
   width: 40px;
 }
 
-.text-logo {
-  font-size: 32px;
+.logo-block{
+  max-width: 300px;
 }
 
-@media screen and (max-width: 540px) {
-  .text-logo {
-    font-size: 20px;
-  }
+.text-logo {
+  font-size: 28px;
 }
+
+// @media screen and (max-width: 567px) {
+//   .text-logo {
+//     font-size: 20px;
+//   }
+// }
 
 .nav-login{
   background-color: rgb(240, 240, 240);
