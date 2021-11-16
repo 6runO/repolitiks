@@ -2,7 +2,12 @@
 <div class="card-candidato">
   <%# <%= link_to candidato_path(candidato), class:"link-candidato stretched-link" do %>
   <%= link_to candidato_path(candidato), class:"link-candidato" do %>
-    <%= cl_image_tag candidato.photo.key, height: 300, width: 400, crop: :fit %>
+    <div class="text-center mt-2">
+        <%= cl_image_tag candidato.photo.key, :transformation=>[
+      {:radius=>"max"},
+      {:height=>150, :crop=>"scale"}
+      ] %>
+    </div>
   <% end %>
 
   <div class="card-candidato-infos">

@@ -15,7 +15,7 @@ Candidato.delete_all
 puts "Criando novos registros..."
 
 # Seed dos candidatos
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos_bruto_2018.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'candidatos.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: "UTF-8")
 csv.each do |row|
   c = Candidato.new
