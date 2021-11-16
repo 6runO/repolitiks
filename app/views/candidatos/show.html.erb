@@ -22,12 +22,12 @@
             <% if current_user.candidatos.include? @candidato %>
               <% marcado = current_user.marcados.find_by(candidato_id: @candidato.id) %>
               <% if marcado.desativado == true %>
-                <%= link_to 'Seguir Político', marcado_path(marcado), method: :patch, class: 'btn btn-warning m-0 btn-seguir' %>
+                <%= link_to 'Seguir Político', marcado_path(marcado), method: :patch, remote: true, class: 'btn btn-warning m-0 btn-seguir' %>
               <% else %>
-                <%= link_to 'Deixar de seguir Político', marcado_path(marcado), method: :patch, class: 'btn btn-warning m-0 btn-seguir' %>
+                <%= link_to 'Deixar de seguir Político', marcado_path(marcado), method: :patch, remote: true, class: 'btn btn-warning m-0 btn-seguir' %>
               <% end %>
             <% else %>
-              <%= link_to 'Seguir Político', candidato_marcados_path(@candidato), method: :post, class: 'btn btn-warning m-0 btn-seguir' %>
+              <%= link_to 'Seguir Político', candidato_marcados_path(@candidato), method: :post, remote: true, class: 'btn btn-warning m-0 btn-seguir' %>
             <% end %>
           <% else %>
             <%= link_to 'Seguir Político', "", class: 'btn btn-warning m-0 btn-seguir', data: { toggle: "modal", target: "#exampleModalCenter" } %>

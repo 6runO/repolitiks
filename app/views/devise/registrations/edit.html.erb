@@ -6,7 +6,7 @@
   <div class="shadow p-3 mb-5 bg-white rounded edit-box mx-auto">
     <h2 class="text-center">Meus dados</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, remote: true) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
