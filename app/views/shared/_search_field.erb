@@ -12,5 +12,80 @@
 </div>
 
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalTitle" aria-hidden="true">
-  <%= render "shared/search_modal" %>
+  <%# render "shared/search_modal" %>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header py-2s">
+      <h3 class="modal-title mx-auto" id="searchModalTitle">Busca detalhada</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body py-1">
+
+      <%# <div class="rounded"> %>
+        <%= form_tag candidatos_path, method: :get, class:"d-sm-flex align-items-center" do %>
+          <div class="rounded px-3 py-1 mb-2 justify-content-center align-items-center shadow-sm">
+            <div class="d-flex align-items-center">
+              <div class="d-flex flex-column rounded group-pad group-width">
+                <small><%= label_tag :nome, nil, class: 'm-0 label-border-pad' %></small>
+                <%= text_field_tag :nome, params[:nome], placeholder: "Nomes...", class: 'input-border-pad' %>
+              </div>
+              <div class="search-middle-border"></div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="d-flex flex-column rounded group-pad group-width">
+                <small><%= label_tag :cargo, nil, class: 'm-0 label-border-pad' %></small>
+                <%= text_field_tag :cargo, params[:cargo], placeholder: "Cargos...", class: 'input-border-pad' %>
+              </div>
+              <div class="search-middle-border"></div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="d-flex flex-column rounded group-pad group-width">
+                <small><%= label_tag :partido, nil, class: 'm-0 label-border-pad' %></small>
+                <%= text_field_tag :partido, params[:partido], placeholder: "Siglas...", class: 'input-border-pad' %>
+              </div>
+              <div class="search-middle-border"></div>
+            </div>
+            <div class="d-flex align-items-center group-select-width">
+              <div class="d-flex flex-column rounded group-pad group-width">
+                <small><%= label_tag :estado, nil, class: 'm-0 label-border-pad' %></small>
+                <%= select_tag :estado, options_for_select(Candidato::ESTADOS, params[:estado]), prompt: "Todos", class: "select-gray select-border-pad rounded" %>
+              </div>
+            </div>
+            <%# <div class="search-middle-border"></div> %>
+            <%# <div class="d-flex flex-column rounded group-pad group-width"> %>
+              <%# <small><%= label_tag :eleito, "Eleito?", class: 'm-0 label-border-pad' %>
+              <%# <%= select_tag :eleito, options_for_select(["Sim", "Não"], params[:eleito]), prompt: "Todos", class: "search-input select-gray select-border-pad rounded" %>
+            <%# </div> %>
+            <%# <div class="search-btn-margin"> %>
+              <%# <%= button_tag(type: "submit", class: "btn btn-dark search-btn-size") do %>
+                <%# <i class="fas fa-search"></i> %>
+              <%# <% end %>
+            <%# </div> %>
+          </div>
+          <div class="search-btn-margin">
+            <%= button_tag(type: "submit", class: "btn btn-dark search-btn-size ml-4 my-2 ") do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <%# </div> %>
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 </div>
