@@ -69,8 +69,9 @@ a.link-candidato {
 }
 
 
-// #### Card da Page do usuário #### //
+// #### Cards da Page do usuário #### //
 
+// ## Card Lista ## //
 .card-home {
   overflow: hidden;
   height: 60px;
@@ -105,4 +106,24 @@ a.link-candidato {
 
 .card-home .card-home-infos {
   padding: 8px;
+}
+
+
+// ## Card Principal ## //
+
+.candidato-main-card {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  // align-items: center;
+  // border: 1px solid rgba($color: #000000, $alpha: 0.2);
+}
+
+.card-home img {
+  height: 100%;
+  width: 130px;
+  object-fit: cover;
+  border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
 }

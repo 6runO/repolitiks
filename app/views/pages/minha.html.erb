@@ -18,48 +18,78 @@
       <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1 rounded">Seguir candidato</span>.</h5>
     <% else %>
       <h5 class="mt-3">Políticos seguidos</h5>
-        <% @candidatos.each do |candidato| %>
-          <div class="card-home d-flex my-1">
-            <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+      <% @candidatos.each do |candidato| %>
+        <div class="card-home d-flex my-1">
+          <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
 
-            <div class="card-home-infos d-flex justify-content-between flex-grow-1">
-              <div class="align-self-center">
-                <h2><%= candidato.nome_urna %></h2>
-                <p><%= candidato.cargo %></p>
-              </div>
+          <div class="card-home-infos d-flex justify-content-between flex-grow-1">
+            <div class="align-self-center">
+              <h2><%= candidato.nome_urna %></h2>
+              <p><%= candidato.cargo %></p>
+            </div>
 
-              <div>
-                <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
-                <%= link_to marcado_path(marcado), method: :patch do %>
-                  <i class="fas fa-thumbtack pin-amarelo"></i>
-                <% end %>
-                <p class="mt-2"><strong><%= candidato.partido %></strong></p>
-              </div>
+            <div>
+              <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
+              <%= link_to marcado_path(marcado), method: :patch do %>
+                <i class="fas fa-thumbtack pin-amarelo"></i>
+              <% end %>
+              <p class="mt-2"><strong><%= candidato.partido %></strong></p>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div class="candidatos-box mx-auto">
+    <% if @candidatos.blank? %>
+        <h2>Espaço reservado para o seus políticos <i class="fas fa-arrow-down"></i></h5>
+    <% else %>
+      <% @candidatos.each do |candidato| %>
+        <div class="candidato-main-card mx-auto">
 
-    <%= link_to "", data: { toggle: "collapse", target: "#exampleModalCenter" } do %>
-      <i class="fas fa-thumbtack pin-cinza"></i>
+          <%# Foto do card principal %>
+          <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+
+          <%# Infos do card principal %>
+          <div class="d-flex justify-content-between">
+            <div class="">
+
+            <%# Área da esquerda %>
+            </div>
+
+            <%# Área da direita %>
+            <div class="">
+
+
+            </div>
+          </div>
+
+          <%# Dropdown area do card principal %>
+          <a class="" data-toggle="collapse" href="#<% candidato.id %>" role="button" aria-expanded="false" aria-controls="<% candidato.id %>">
+            <i class="fas fa-sort-down"></i>
+          </a>
+          <div class="collapse" id="<% candidato.id %>">
+            <div class="card card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+          </div>
+
+        </div>
+      <% end %>
     <% end %>
-    <button class="arrow-down" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      <i class="fas fa-sort-down"></i>
-    </button>
 
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-    </div>
-  </div>
+
+
 
 
 
 
   </div>
+
+
+
+
+
 
 </div>
