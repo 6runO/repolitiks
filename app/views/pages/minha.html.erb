@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="d-flex justify-content between align-items-top" style="height: 70px;">
+  <div class="d-flex justify-content between align-items-top" style="height: 50px;">
     <%= link_to :back do %>
       <i class="fas fa-caret-square-left btn-voltar"></i>
     <% end %>
@@ -9,99 +9,91 @@
     </div>
   </div>
 
-  <div class="seguidos-box shadow text-center p-2">
-    <%= link_to candidatos_path do %>
-      <div class="btn btn-dark"><i class="fas fa-search"></i> Pesquisar políticos</div>
-    <% end %>
-
-    <% if @candidatos.blank? %>
-      <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1 rounded">Seguir candidato</span>.</h5>
-    <% else %>
-      <h5 class="mt-3">Políticos seguidos</h5>
-      <% i = 1 %>
-      <% @candidatos.each do |candidato| %>
-        <div class="card-lista d-flex my-1 position-relative">
-          <%# <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
-          <h4 class="pl-3 pr-1"><%= i %></h4>
-          <% i += 1 %>
-
-          <div class="card-lista-infos text-center flex-grow-1">
-          <%# <div class="card-home-left align-self-center"> %>
-            <h2><%= candidato.nome_urna %></h2>
-            <p><%= candidato.cargo %></p>
-          <%# </div> %>
-          </div>
-
-          <div class="position-absolute pin">
-            <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
-            <%= link_to marcado_path(marcado), method: :patch do %>
-              <i class="fas fa-thumbtack pin-amarelo"></i>
-            <% end %>
-          </div>
-
-          <div class="position-absolute partido">
-            <p class="mt-2"><strong><%= candidato.partido %></strong></p>
-          </div>
-        </div>
+  <div class="d-flex mt-2">
+    <%# Box Seguidos %>
+    <div class="seguidos-box shadow text-center p-2">
+      <%= link_to candidatos_path do %>
+        <div class="btn btn-dark"><i class="fas fa-search"></i> Pesquisar políticos</div>
       <% end %>
-    <% end %>
-  </div>
 
-  <div class="candidatos-box mx-auto">
-    <% if @candidatos.blank? %>
-        <h2>Espaço reservado para o seus políticos <i class="fas fa-arrow-down"></i></h5>
-    <% else %>
-      <% @candidatos.each do |candidato| %>
-        <div class="candidato-main-card mx-auto">
+      <% if @candidatos.blank? %>
+        <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1 rounded">Seguir candidato</span>.</h5>
+      <% else %>
+        <h5 class="mt-3">Políticos seguidos</h5>
+        <% i = 1 %>
+        <% @candidatos.each do |candidato| %>
 
-          <%# Foto do card principal %>
-          <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+          <%# Cards dos Seguidos %>
+          <div class="card-lista d-flex my-1 position-relative">
+            <h4 class="pl-3 pr-1"><%= i %></h4>
+            <% i += 1 %>
 
-          <%# Infos do card principal %>
-          <div class="d-flex justify-content-between">
-            <div class="">
-
-            <%# Área da esquerda %>
+            <div class="card-lista-infos text-center flex-grow-1">
+              <h2><%= candidato.nome_urna %></h2>
+              <p><%= candidato.cargo %></p>
             </div>
 
-            <%# Área da direita %>
-            <div class="">
-
-
+            <div class="position-absolute pin">
+              <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
+              <%= link_to marcado_path(marcado), method: :patch do %>
+                <i class="fas fa-thumbtack pin-amarelo"></i>
+              <% end %>
             </div>
-          </div>
 
-          <%# Dropdown area do card principal %>
-          <a class="" data-toggle="collapse" href="#candidato-<%= candidato.id.to_s %>" role="button" aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s %>">
-            <i class="fas fa-sort-down"></i>
-          </a>
-
-          <%# <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#candidato-<%= candidato.id.to_s " aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s "> %>
-            <%# Button with data-target %>
-          <%# </button> %>
-
-          <div class="collapse" id="candidato-<%= candidato.id.to_s %>">
-            <div class="card card-body">
-              <%= candidato.nome_candidato %>
-              <%= candidato.nascimento %>
+            <div class="position-absolute partido">
+              <p class="mt-2"><strong><%= candidato.partido %></strong></p>
             </div>
           </div>
-
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+
+    <%# Box principal Candidatos %>
+    <div class="candidatos-box mx-auto">
+      <% if @candidatos.blank? %>
+          <h2>Espaço reservado para o seus políticos <i class="fas fa-arrow-down"></i></h5>
+      <% else %>
+        <% @candidatos.each do |candidato| %>
+
+          <%# Cards principais dos Candidatos %>
+          <div class="candidato-main-card mx-auto">
+
+            <%# Foto do card principal %>
+            <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+
+            <%# Infos do card principal %>
+            <div class="d-flex justify-content-between">
+              <div class="">
+
+              <%# Área da esquerda %>
+              </div>
+
+              <%# Área da direita %>
+              <div class="">
 
 
+              </div>
+            </div>
 
+            <%# Dropdown area do card principal %>
+            <a class="" data-toggle="collapse" href="#candidato-<%= candidato.id.to_s %>" role="button" aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s %>">
+              <i class="fas fa-sort-down"></i>
+            </a>
 
+            <%# <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#candidato-<%= candidato.id.to_s " aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s "> %>
+              <%# Button with data-target %>
+            <%# </button> %>
 
+            <div class="collapse" id="candidato-<%= candidato.id.to_s %>">
+              <div class="card card-body">
+                <%= candidato.nome_candidato %>
+                <%= candidato.nascimento %>
+              </div>
+            </div>
 
-
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-
-
-
-
-
-
 </div>
