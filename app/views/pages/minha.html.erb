@@ -44,8 +44,11 @@
 
   <div class="candidatos-box mx-auto">
 
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Button with data-target
+    <%= link_to "", data: { toggle: "collapse", target: "#exampleModalCenter" } do %>
+      <i class="fas fa-thumbtack pin-cinza"></i>
+    <% end %>
+    <button class="arrow-down" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <i class="fas fa-sort-down"></i>
     </button>
 
   <div class="collapse" id="collapseExample">
@@ -54,7 +57,7 @@
     </div>
   </div>
 
-    
+
 
 
   </div>
