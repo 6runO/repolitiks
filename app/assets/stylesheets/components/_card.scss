@@ -72,7 +72,7 @@ a.link-candidato {
 // #### Cards da Page do usuário #### //
 
 // ## Card Lista ## //
-.card-home {
+.card-lista {
   overflow: hidden;
   height: 60px;
   background: white;
@@ -80,22 +80,16 @@ a.link-candidato {
   display: flex;
   align-items: center;
   border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  width: 100%;
 }
 
-.card-home img {
-  height: 100%;
-  width: 50px;
-  object-fit: cover;
-  border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
-}
-
-.card-home h2 {
+.card-lista h2 {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-home p {
+.card-lista p {
   font-size: 10px;
   line-height: 1.4;
   opacity: .7;
@@ -104,10 +98,19 @@ a.link-candidato {
   // margin-top: 8px;
 }
 
-.card-home .card-home-infos {
-  padding: 8px;
+.card-lista .card-lista-infos {
+  padding: 4px 30px 4px 0;
 }
 
+.card-lista .pin {
+  top: 3px;
+  right: 5px;
+}
+
+.card-lista .partido {
+  bottom: 4px;
+  right: 5px;
+}
 
 // ## Card Principal ## //
 
@@ -115,13 +118,15 @@ a.link-candidato {
   overflow: hidden;
   height: 200px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
   display: flex;
+  padding: 16px;
   // align-items: center;
   // border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  margin-bottom: 16px;
 }
 
-.card-home img {
+.candidato-main-card img {
   height: 100%;
   width: 130px;
   object-fit: cover;

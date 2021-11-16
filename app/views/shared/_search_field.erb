@@ -1,4 +1,5 @@
-<div class="d-flex align-items-center py-1 mr-4">
+<div class="d-flex align-items-center py-1 mr-3">
+  <%# Barra de busca %>
   <%= form_tag candidatos_path, method: :get do %>
     <div class="search-field-form">
       <%= text_field_tag :query, params[:query], placeholder: "Busca...", class: 'search-field-input w-100 h-100 bg-white pl-3 pr-5 ' %>
@@ -6,11 +7,13 @@
     </div>
   <% end %>
 
+  <%# Botão de + %>
   <%= link_to "", data: { toggle: "modal", target: "#searchModal" } , class: "search-field-plus" do %>
     <i class="fas fa-plus"></i>
   <% end %>
 </div>
 
+<%# Modal para o botão de + %>
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalTitle" aria-hidden="true">
   <%# render "shared/search_modal" %>
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -72,11 +75,7 @@
           </div>
         <% end %>
       <%# </div> %>
-
     </div>
-
-
-
   </div>
 </div>
 

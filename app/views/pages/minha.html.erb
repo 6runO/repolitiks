@@ -18,23 +18,29 @@
       <h6>Acompanhe os políticos que escolher. Basta marcá-los com <i class="fas fa-thumbtack pin-amarelo"></i> ou clicar no botão <span class="btn-warning px-1 rounded">Seguir candidato</span>.</h5>
     <% else %>
       <h5 class="mt-3">Políticos seguidos</h5>
+      <% i = 1 %>
       <% @candidatos.each do |candidato| %>
-        <div class="card-home d-flex my-1">
-          <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+        <div class="card-lista d-flex my-1 position-relative">
+          <%# <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+          <h4 class="pl-3 pr-1"><%= i %></h4>
+          <% i += 1 %>
 
-          <div class="card-home-infos d-flex justify-content-between flex-grow-1">
-            <div class="align-self-center">
-              <h2><%= candidato.nome_urna %></h2>
-              <p><%= candidato.cargo %></p>
-            </div>
+          <div class="card-lista-infos text-center flex-grow-1">
+          <%# <div class="card-home-left align-self-center"> %>
+            <h2><%= candidato.nome_urna %></h2>
+            <p><%= candidato.cargo %></p>
+          <%# </div> %>
+          </div>
 
-            <div>
-              <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
-              <%= link_to marcado_path(marcado), method: :patch do %>
-                <i class="fas fa-thumbtack pin-amarelo"></i>
-              <% end %>
-              <p class="mt-2"><strong><%= candidato.partido %></strong></p>
-            </div>
+          <div class="position-absolute pin">
+            <% marcado = current_user.marcados.find_by(candidato_id: candidato.id) %>
+            <%= link_to marcado_path(marcado), method: :patch do %>
+              <i class="fas fa-thumbtack pin-amarelo"></i>
+            <% end %>
+          </div>
+
+          <div class="position-absolute partido">
+            <p class="mt-2"><strong><%= candidato.partido %></strong></p>
           </div>
         </div>
       <% end %>
@@ -66,12 +72,18 @@
           </div>
 
           <%# Dropdown area do card principal %>
-          <a class="" data-toggle="collapse" href="#<% candidato.id %>" role="button" aria-expanded="false" aria-controls="<% candidato.id %>">
+          <a class="" data-toggle="collapse" href="#candidato-<%= candidato.id.to_s %>" role="button" aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s %>">
             <i class="fas fa-sort-down"></i>
           </a>
-          <div class="collapse" id="<% candidato.id %>">
+
+          <%# <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#candidato-<%= candidato.id.to_s " aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s "> %>
+            <%# Button with data-target %>
+          <%# </button> %>
+
+          <div class="collapse" id="candidato-<%= candidato.id.to_s %>">
             <div class="card card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+              <%= candidato.nome_candidato %>
+              <%= candidato.nascimento %>
             </div>
           </div>
 
