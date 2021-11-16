@@ -2,7 +2,7 @@
   <%= form_tag candidatos_path, method: :get do %>
     <div class="search-field-form">
       <%= text_field_tag :query, params[:query], placeholder: "Busca...", class: 'search-field-input w-100 h-100 bg-white pl-3 pr-5 ' %>
-      <button type="submit" class="search-field-btn"><i class="fas fa-search"></i></button>
+      <button type="submit" name="commit" class="search-field-btn"><i class="fas fa-search"></i></button>
     </div>
   <% end %>
 
