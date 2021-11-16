@@ -27,5 +27,20 @@
 .arrow-dropdown {
   text-decoration: none;
   color: rgb(101, 106, 209);
-  font-size: 32px;
+  font-size: 16px;
+  // padding-left: 370px;
+}
+
+.arrow-frame {
+  padding-bottom: 16px;
+  padding-right: 5px;
+}
+
+.candidato-main-info p {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.candidato-main-info .fa-graduation-cap {
+  font-size: 15px;
 }

@@ -56,46 +56,41 @@
           <h4>Espaço reservado para o seus políticos <i class="fas fa-arrow-down"></i></h4>
       <% else %>
         <% @candidatos.each do |candidato| %>
-
           <%# Cards principais dos Candidatos %>
           <div class="candidato-main-card mx-auto">
-
             <%# Foto do card principal %>
-            <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
-
+            <%= link_to candidato_path(candidato), class:"" do %>
+              <%= cl_image_tag candidato.photo.key, gravity: :face, crop: :crop %>
+            <% end %>
             <%# Infos do card principal %>
-            <div class="candidato-main-info d-flex justify-content-between">
+            <div class="candidato-main-info flex-grow-1 pl-3 align-self-center">
+              <%# d-flex justify-content-between %>
               <%# Área da esquerda %>
-              <div class="pl-3">
+              <%# <div class=""> %>
                 <p>Nome completo: <%= candidato.nome_candidato %></p>
-
-              </div>
-
+                <p>Nome de urna: <%= candidato.nome_urna %></p>
+                <p><i class="fas fa-graduation-cap"></i>  <%= candidato.grau_instrucao %></p>
+                <p>Ocupação: <%= candidato.ocupacao %></p>
+                <p>Nascimento: <%= candidato.nascimento %></p>
+                <p>E-mail: <%= candidato.email %></p>
+              <%# </div> %>
               <%# Área da direita %>
-              <div class="">
-
-
-              </div>
+              <%# <div class=""> %>
+              <%# </div> %>
             </div>
-
-            <%# Dropdown area do card principal %>
-            <p>
+          </div>
+          <%# Dropdown area do card principal %>
+          <div class="arrow-frame text-right">
             <a class="arrow-dropdown" data-toggle="collapse" href="#candidato-<%= candidato.id.to_s %>" role="button" aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s %>">
               <i class="fas fa-sort-down"></i>
             </a>
-            </p>
-
-            <%# <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#candidato-<%= candidato.id.to_s " aria-expanded="false" aria-controls="candidato-<%= candidato.id.to_s "> %>
-              <%# Button with data-target %>
-            <%# </button> %>
-
             <div class="collapse" id="candidato-<%= candidato.id.to_s %>">
               <div class="card card-body">
-                <%= candidato.nome_candidato %>
-                <%= candidato.nascimento %>
+                <%# bens do candidato %>
+
+
               </div>
             </div>
-
           </div>
         <% end %>
       <% end %>
