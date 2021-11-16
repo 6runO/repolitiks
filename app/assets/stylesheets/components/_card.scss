@@ -128,7 +128,10 @@ a.link-candidato {
 
 .candidato-main-card img {
   height: 100%;
-  width: 130px;
   object-fit: cover;
   border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
+}
+
+.candidato-main-info {
+  max-width: 600px;
 }
